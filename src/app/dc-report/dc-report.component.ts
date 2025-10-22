@@ -44,7 +44,7 @@ export class DcReportComponent implements OnInit {
       ltih: `/.netlify/functions/proxy-solr?path=/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`
     };
 
-    this.isGenerating = true;
+    // this.isGenerating = true;
 
     forkJoin({
       dcs1: this.http.get(urls.dcs1, { responseType: 'text' }),
