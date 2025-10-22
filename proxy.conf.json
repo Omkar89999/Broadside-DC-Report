@@ -1,0 +1,23 @@
+{
+  "/solr1": {
+    "target": "https://broadsidejumpersrv.emails.services/solr",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": { "^/solr1": "" },
+    "logLevel": "debug"
+  },
+  "/solr2": {
+    "target": "https://broadsidejumper2srv.emails.services/solr",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": { "^/solr2": "" },
+    "logLevel": "debug"
+  },
+  "/solr3": {
+    "target": "https://broadsidejumper3srv.emails.services/solr",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": { "^/solr3": "" },
+    "logLevel": "debug"
+  }
+}
