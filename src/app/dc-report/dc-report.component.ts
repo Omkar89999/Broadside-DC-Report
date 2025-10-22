@@ -100,10 +100,16 @@ export class DcReportComponent implements OnInit {
     const arr = response?.facet_counts?.facet_fields?.bml_app || [];
     const map: Record<string, number> = {};
     for (let i = 0; i < arr.length; i += 2) {
-      map[arr[i]] = arr[i + 1];
+      const appKey = String(arr[i]); // ✅ ensure key is string
+      const count = Number(arr[i + 1]); // ✅ ensure value is number
+      map[appKey] = count;
     }
     return map;
   }
+  
+
+
+
 
   private parseXmlCounts(xmlText: string): Record<string, number> {
     const parser = new DOMParser();
