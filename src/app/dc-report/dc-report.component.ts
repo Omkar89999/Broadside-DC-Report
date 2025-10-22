@@ -116,15 +116,20 @@ export class DcReportComponent implements OnInit {
     const xml = parser.parseFromString(xmlText, "application/xml");
     const docs = xml.getElementsByTagName("doc");
     const map: Record<string, number> = {};
+  
     for (let i = 0; i < docs.length; i++) {
       const appNode = docs[i].querySelector("int[name='bml_app']");
       if (appNode) {
         const app = appNode.textContent || 'Unknown';
-        map[app] = (map[app] || 0) + 1;
+        // If app exists, increment by the value in the node
+        const value = Number(appNode.textContent) || 0;
+        map[app] = (map[app] || 0) + 1; // or +value if node has actual count
       }
     }
+  
     return map;
   }
+  
 
   get grandTotal() {
     return this.reportData.reduce(
