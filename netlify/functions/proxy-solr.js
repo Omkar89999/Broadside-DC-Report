@@ -1,6 +1,6 @@
-import fetch from 'node-fetch';
+const fetch = require('node-fetch');
 
-export async function handler(event, context) {
+exports.handler = async function(event, context) {
   try {
     const path = event.queryStringParameters.path || '';
     const solrUrl = `https://broadsidejumper2srv.emails.services/solr${path}`;
@@ -18,4 +18,4 @@ export async function handler(event, context) {
       body: JSON.stringify({ error: err.message })
     };
   }
-}
+};
