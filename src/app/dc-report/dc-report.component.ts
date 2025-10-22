@@ -148,8 +148,10 @@ export class DcReportComponent implements OnInit {
     const end = `${this.endDate}T23:59:59Z`;
 
     const dcs1Url = `${environment.apiBaseUrl1}/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`;
-    const ltipUrl = `${environment.apiBaseUrl2}/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`;
+    // const ltipUrl = `${environment.apiBaseUrl2}/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`;
     const ltihUrl = `${environment.apiBaseUrl3}/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`;
+
+    const ltipUrl = `/.netlify/functions/proxy-solr?path=/collection1/select?q=...&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`;
 
     forkJoin({
       dcs1: this.http.get(dcs1Url, { responseType: 'text' }),

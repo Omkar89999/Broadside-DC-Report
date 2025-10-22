@@ -1,0 +1,6 @@
+[build]
+  command = "ng build --configuration production"
+  publish = "dist/dc-report-app-standalone/browser"
+
+[functions]
+  directory = "netlify/functions"
