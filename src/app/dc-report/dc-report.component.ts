@@ -41,11 +41,18 @@ export class DcReportComponent implements OnInit {
     const start = `${this.startDate}T00:00:00Z`;
     const end = `${this.endDate}T23:59:59Z`;
 
+    // const urls = {
+    //   dcs1: `/.netlify/functions/proxy-solr?path=/solr1/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`,
+    //   ltip: `/.netlify/functions/proxy-solr?path=/solr2/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`,
+    //   ltih: `/.netlify/functions/proxy-solr?path=/solr3/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`
+    // };
+
     const urls = {
       dcs1: `/.netlify/functions/proxy-solr?path=/solr1/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`,
       ltip: `/.netlify/functions/proxy-solr?path=/solr2/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`,
       ltih: `/.netlify/functions/proxy-solr?path=/solr3/collection1/select?q=bml_dispatchedat:[${start} TO ${end}]&facet.field=bml_app&facet=on&rows=0&start=0&wt=json`
     };
+    
 
     forkJoin({
       dcs1: this.http.get<any>(urls.dcs1),
